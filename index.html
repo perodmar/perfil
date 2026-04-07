@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedro & María del Pilar — Madrid 2025</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Fustat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Fustat', sans-serif;
+      background: #fff;
+      color: #111;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    /* ── HEADER ── */
+    header {
+      border-bottom: 1px solid #111;
+      padding: 48px 60px 40px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 40px;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.05;
+    }
+
+    header h1 em {
+      font-style: normal;
+      font-family: 'Fustat', sans-serif;
+      font-weight: 400;
+      font-size: 0.32em;
+      display: block;
+      color: #555;
+      margin-top: 14px;
+      line-height: 1.6;
+      letter-spacing: 0;
+    }
+
+    .header-meta {
+      text-align: right;
+      font-size: 13px;
+      color: #555;
+      line-height: 2;
+    }
+
+    .header-meta strong {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #111;
+      margin-bottom: 6px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      border-bottom: 1px solid #e0e0e0;
+      padding: 0 60px;
+      display: flex;
+      gap: 0;
+    }
+
+    nav a {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #999;
+      text-decoration: none;
+      padding: 16px 24px 16px 0;
+      margin-right: 24px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    nav a:hover {
+      color: #111;
+      border-bottom-color: #111;
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 60px;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      padding: 72px 0;
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    .section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #999;
+      margin-bottom: 28px;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    p {
+      color: #333;
+      margin-bottom: 18px;
+      max-width: 680px;
+    }
+
+    p:last-of-type { margin-bottom: 0; }
+
+    /* ── PHOTO SLOT ── */
+    .photo-slot {
+      background: #f4f4f4;
+      border: 1px solid #ddd;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: #aaa;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .photo-slot img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+    }
+
+    .photo-slot .icon { font-size: 28px; opacity: 0.35; }
+
+    /* ── HERO PHOTO ── */
+    .hero-photo {
+      width: 100%;
+      height: 480px;
+      margin-bottom: 0;
+    }
+
+    /* ── TWO COLUMN ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .two-col-text h2 { margin-bottom: 20px; }
+
+    /* ── PHOTO PAIR ── */
+    .photo-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 40px 0;
+    }
+
+    .photo-pair .photo-slot { height: 280px; }
+
+    /* ── PHOTO STRIP ── */
+    .photo-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 40px 0;
+    }
+
+    .photo-strip .photo-slot { height: 220px; }
+
+    /* ── SINGLE PHOTO ── */
+    .single-photo {
+      width: 100%;
+      height: 360px;
+      margin: 40px 0;
+    }
+
+    /* ── FACTS ROW ── */
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0;
+      border: 1px solid #e0e0e0;
+      margin: 40px 0;
+    }
+
+    .fact {
+      padding: 28px 24px;
+      border-right: 1px solid #e0e0e0;
+    }
+
+    .fact:last-child { border-right: none; }
+
+    .fact-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      display: block;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .fact-label {
+      font-size: 12px;
+      color: #888;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ── SOCIAL ── */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 36px;
+    }
+
+    .social-link {
+      border: 1px solid #ddd;
+      padding: 20px 24px;
+      text-decoration: none;
+      color: #111;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: background 0.15s, border-color 0.15s;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .social-link:hover {
+      background: #111;
+      color: #fff;
+      border-color: #111;
+    }
+
+    .social-link .s-icon { font-size: 20px; }
+
+    .social-link .s-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .social-link .s-platform {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #999;
+    }
+
+    .social-link:hover .s-platform { color: #aaa; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid #111;
+      padding: 32px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: #888;
+    }
+
+    footer strong { color: #111; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      header { padding: 36px 24px 28px; grid-template-columns: 1fr; }
+      .header-meta { text-align: left; }
+      nav { padding: 0 24px; flex-wrap: wrap; }
+      nav a { padding: 12px 16px 12px 0; }
+      .container { padding: 0 24px; }
+      .two-col { grid-template-columns: 1fr; gap: 32px; }
+      .photo-pair { grid-template-columns: 1fr; }
+      .photo-strip { grid-template-columns: 1fr 1fr; }
+      .facts { grid-template-columns: 1fr 1fr; }
+      .fact { border-bottom: 1px solid #e0e0e0; }
+      footer { flex-direction: column; gap: 8px; text-align: center; padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <h1>Pedro y María del Pilar
+    <em>Somos una pareja joven que se muda a Madrid en junio — los dos trabajamos, tenemos un perro pequeño y buscamos un piso de dos habitaciones para quedarnos a largo plazo.</em>
+  </h1>
+
+</header>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#nosotros">Nosotros</a>
+  <a href="#trabajo">Trabajo</a>
+  <a href="#teo">Teo</a>
+  <a href="#propiedades">Propiedades</a>
+  <a href="#contacto">Contacto</a>
+</nav>
+
+<!-- ── HERO PHOTO ── -->
+<div class="container">
+  <div class="photo-slot hero-photo" style="margin-top: 48px;">
+    <!-- Reemplaza con: <img src="images/pareja.jpg" alt="Pedro y María del Pilar"> -->
+    <span class="icon">📷</span>
+    <span>Foto de los dos</span>
+  </div>
+</div>
+
+<!-- ── NOSOTROS ── -->
+<div class="container">
+  <div class="section" id="nosotros">
+    <p class="section-label">Quiénes somos</p>
+
+    <div class="two-col">
+      <div class="two-col-text">
+        <h2>Una pareja joven con ganas de Madrid</h2>
+        <p>
+          Somos Pedro y María del Pilar, una pareja de 32 y 30 años que se muda a Madrid desde Washington D.C. a finales de junio de 2025. Pedro es ecuatoriano y María del Pilar es de Barcelona — así que para ella es, en cierto modo, volver a casa.
+        </p>
+        <p>
+          Llevamos varios años en Washington y ahora damos el paso a Madrid por trabajo. Buscamos un piso donde quedarnos a largo plazo, cuidarlo bien y vivir tranquilos. Somos ordenados, respetuosos con los vecinos y puntuales con los pagos.
+        </p>
+        <p>
+          Nos mudamos con Teo, nuestro cocker spaniel de 6 años — pequeño, tranquilo y bien educado.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="photo-pair">
+      <div class="photo-slot">
+        <!-- <img src="images/pedro.jpg" alt="Pedro"> -->
+        <span class="icon">📷</span>
+        <span>Pedro</span>
+      </div>
+      <div class="photo-slot">
+        <!-- <img src="images/mariadelpilar.jpg" alt="María del Pilar"> -->
+        <span class="icon">📷</span>
+        <span>María del Pilar</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── TRABAJO ── -->
+<div class="container">
+  <div class="section" id="trabajo">
+    <p class="section-label">Trabajo e ingresos</p>
+    <h2>Estabilidad garantizada</h2>
+    <p>
+          Pedro acaba de terminar su doctorado en Economía en la Universidad George Washington y empieza como <strong>profesor en CUNEF Universidad</strong> con contrato permanente a partir de septiembre de 2025. CUNEF es una de las mejores facultades de economía de España.
+        </p>
+        <p>
+          María del Pilar lleva <strong>6 años trabajando en marketing</strong> para una empresa de servicios de delivery, en remoto. Puede trabajar desde Madrid sin ningún problema, con total flexibilidad de horario.
+        </p>
+        <p>
+          Contamos con ingresos dobles, contrato fijo y referencias disponibles si se necesitan.
+        </p>
+  </div>
+</div>
+
+<!-- ── TEO ── -->
+<div class="container">
+  <div class="section" id="teo">
+    <p class="section-label">El tercer miembro de la familia</p>
+
+    <div class="two-col">
+      <div class="photo-slot" style="height: 360px;">
+        <!-- <img src="images/teo.jpg" alt="Teo"> -->
+        <span class="icon">🐶</span>
+        <span>Foto de Teo</span>
+      </div>
+      <div>
+        <h2>Teo, 6 años, cocker spaniel</h2>
+        <p>
+          Teo es pequeño, tranquilo y lleva años viviendo en pisos en Washington. Nunca hemos tenido una queja de vecinos — ni una. Pasa la mayor parte del día durmiendo y disfrutando de paseos cortos.
+        </p>
+        <p>
+          Pesa unos 10 kg, está castrado y al día con todas las vacunas. Si hace falta, encantados de presentarlo antes de tomar ninguna decisión.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── PROPIEDADES ── -->
+<div class="container">
+  <div class="section" id="propiedades">
+    <p class="section-label">Propiedades en propiedad</p>
+    <h2>Sabemos cuidar un piso</h2>
+    <p>
+      Además de haber sido inquilinos cuidadosos durante años en Washington, somos propietarios de dos apartamentos: uno en Washington D.C. y otro en Quito, Ecuador. Sabemos lo que significa confiar un piso a alguien — y lo tomamos muy en serio.
+    </p>
+
+    <div class="photo-pair">
+      <div class="photo-slot">
+        <!-- <img src="images/piso-dc.jpg" alt="Apartamento en Washington DC"> -->
+        <span class="icon">🏠</span>
+        <span>Apartamento · Washington D.C.</span>
+      </div>
+      <div class="photo-slot">
+        <!-- <img src="images/piso-quito.jpg" alt="Apartamento en Quito"> -->
+        <span class="icon">🏠</span>
+        <span>Apartamento · Quito, Ecuador</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── FOTOS ── -->
+<div class="container">
+  <div class="section">
+    <p class="section-label">Más fotos</p>
+    <h2>Nuestra vida en Washington</h2>
+    <p>
+      Aquí va espacio para más fotos — de vuestra vida en DC, viajes, momentos con Teo, lo que quieras que el propietario vea.
+    </p>
+    <div class="photo-strip">
+      <div class="photo-slot">
+        <!-- <img src="images/foto1.jpg" alt=""> -->
+        <span class="icon">📷</span>
+        <span>Foto</span>
+      </div>
+      <div class="photo-slot">
+        <!-- <img src="images/foto2.jpg" alt=""> -->
+        <span class="icon">📷</span>
+        <span>Foto</span>
+      </div>
+      <div class="photo-slot">
+        <!-- <img src="images/foto3.jpg" alt=""> -->
+        <span class="icon">📷</span>
+        <span>Foto</span>
+      </div>
+    </div>
+    <div class="photo-strip">
+      <div class="photo-slot">
+        <!-- <img src="images/foto4.jpg" alt=""> -->
+        <span class="icon">📷</span>
+        <span>Foto</span>
+      </div>
+      <div class="photo-slot">
+        <!-- <img src="images/foto5.jpg" alt=""> -->
+        <span class="icon">📷</span>
+        <span>Foto</span>
+      </div>
+      <div class="photo-slot">
+        <!-- <img src="images/foto6.jpg" alt=""> -->
+        <span class="icon">📷</span>
+        <span>Foto</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CONTACTO ── -->
+<div class="container">
+  <div class="section" id="contacto">
+    <p class="section-label">Contacto y redes sociales</p>
+    <h2>Hablamos cuando quieras</h2>
+    <p>
+      Cualquier pregunta, duda o simplemente ganas de conocernos un poco mejor antes de decidir — estamos disponibles.
+    </p>
+
+    <div class="social-grid">
+
+      <a href="https://www.linkedin.com/in/perodmar/" target="_blank" class="social-link">
+        <span class="s-icon">💼</span>
+        <span class="s-meta">
+          <span class="s-platform">LinkedIn</span>
+          <span>Pedro</span>
+        </span>
+      </a>
+
+      <a href="https://www.linkedin.com/in/ACTUALIZA" target="_blank" class="social-link">
+        <span class="s-icon">💼</span>
+        <span class="s-meta">
+          <span class="s-platform">LinkedIn</span>
+          <span>María del Pilar</span>
+        </span>
+      </a>
+
+      <a href="https://www.instagram.com/perodmar/" target="_blank" class="social-link">
+        <span class="s-icon">📸</span>
+        <span class="s-meta">
+          <span class="s-platform">Instagram</span>
+          <span>Pedro</span>
+        </span>
+      </a>
+
+      <a href="https://www.instagram.com/ACTUALIZA" target="_blank" class="social-link">
+        <span class="s-icon">📸</span>
+        <span class="s-meta">
+          <span class="s-platform">Instagram</span>
+          <span>María del Pilar</span>
+        </span>
+      </a>
+
+      <a href="https://www.facebook.com/ACTUALIZA" target="_blank" class="social-link">
+        <span class="s-icon">👥</span>
+        <span class="s-meta">
+          <span class="s-platform">Facebook</span>
+          <span>Pedro</span>
+        </span>
+      </a>
+
+      <a href="https://www.facebook.com/ACTUALIZA" target="_blank" class="social-link">
+        <span class="s-icon">👥</span>
+        <span class="s-meta">
+          <span class="s-platform">Facebook</span>
+          <span>María del Pilar</span>
+        </span>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <span>Pedro &amp; María del Pilar · <strong>Madrid 2025</strong></span>
+  <span>🐾 Con Teo</span>
+</footer>
+
+</body>
+</html>
